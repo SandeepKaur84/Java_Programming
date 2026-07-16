@@ -41,6 +41,23 @@ public class Traversals {
         System.out.print(root.data + " ");
     }
 
+    public static int smallest(Node root) {
+        if(root == null) {
+            return 0;
+        }
+        while(root.left != null){
+            root = root.left;
+        }
+        return root.data;
+    }
+
+    public static int largest(Node root) {
+        while(root.right != null) {
+            root = root.right;
+        }
+        return root.data;
+    }
+    
     public static void main(String[] args) {
         Node root = new Node(40);
         root.left = new Node(20);
@@ -57,5 +74,9 @@ public class Traversals {
         inOrder(root);
         System.out.println();
         postOrder(root);
+        System.out.println();
+        System.out.println(smallest(root));
+        System.out.println(largest(root));
+        
     }
 }
